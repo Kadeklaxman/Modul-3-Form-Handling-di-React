@@ -6,7 +6,9 @@ export const postSchema = z.object({
     errorMap: () => ({ message: 'Kategori harus dipilih' }),
   }),
   content: z.string().min(20, 'Konten minimal 20 karakter'),
-    tags: z.array(z.string().min(1, 'Tag minimal 1 karakter')).max(5, 'Maksimal 5 tag'),
+    tags: z
+  .array(z.string())
+  .min(1, 'Minimal 1 tag'),
     status: z.enum(['draft', 'published'], {
     errorMap: () => ({ message: 'Status harus dipilih' }),
   }),
